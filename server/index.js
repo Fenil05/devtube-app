@@ -24,6 +24,16 @@ app.use("/api/videos",videoRoutes)
 app.use("/api/comments",commentRoutes)
 app.use("/api/auth",authRoutes)
 
+app.use((err,req,res,next)=>{
+    const status = err.status || 500
+    const message = err.message || "Something went wrong!"
+    return res.status(status).send({
+        success:false,
+        status,
+        message
+    })
+})
+
 app.listen(8000,()=>{
     connect()
     console.log("Backend server is running!");
