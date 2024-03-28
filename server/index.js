@@ -5,10 +5,12 @@ import userRoutes from "./routes/users.js"
 import commentRoutes from "./routes/comments.js"
 import videoRoutes from "./routes/videos.js"
 import authRoutes from "./routes/auth.js"
+import cookieparser from "cookie-parser"
 
 const app = express()
 dotenv.config()
 app.use(express.json())
+app.use(cookieparser())
 
 const connect = async()=>{
     try {
