@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth.js"
 
 const app = express()
 dotenv.config()
+app.use(express.json())
 
 const connect = async()=>{
     try {
