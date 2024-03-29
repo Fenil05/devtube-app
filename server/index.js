@@ -6,11 +6,14 @@ import commentRoutes from "./routes/comments.js"
 import videoRoutes from "./routes/videos.js"
 import authRoutes from "./routes/auth.js"
 import cookieparser from "cookie-parser"
+import cors from "cors"
 
 const app = express()
 dotenv.config()
 app.use(express.json())
 app.use(cookieparser())
+app.use(cors({origin:"http://localhost:3000",credentials:true}))
+
 
 const connect = async()=>{
     try {
